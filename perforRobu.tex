@@ -1,0 +1,239 @@
+\documentclass[12pt, a4paper, openany]{report}
+
+\def\VersionMemoire{2.0}
+
+\usepackage[utf8]{inputenc} % un package
+\usepackage[T1]{fontenc}      % un second package
+\usepackage[francais,english]{babel}  % un troisième package
+\usepackage{layout}
+\usepackage[top=2.7cm, bottom=2.5cm, left=3.5cm, right=3cm]{geometry}
+\usepackage{setspace}
+
+\frenchbsetup{StandardLists=true} % à inclure si on utilise \usepackage[french]{babel}
+\usepackage{enumitem}
+\usepackage{amssymb}
+
+\usepackage{color}
+\usepackage{listings}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+\usepackage{multirow} % pour les tableaux
+\usepackage[table]{xcolor} % pour les tableaux
+
+\usepackage{verbatim}
+\usepackage{moreverb}
+\usepackage{url}
+\usepackage{pst-all}
+\usepackage{eso-pic,graphicx}
+\usepackage{caption} 
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=red]{hyperref}
+\usepackage{array}
+\usepackage[toc,page]{appendix}
+\usepackage[off]{auto-pst-pdf}
+\usepackage{hyperref} % pour le sommaire table des matières
+\AddThinSpaceBeforeFootnotes % à insérer si on utilise \usepackage[french]{babel}
+\FrenchFootnotes % à insérer si on utilise \usepackage[french]{babel}
+\usepackage{fancyhdr}
+\pagestyle{headings}
+
+\renewcommand{\appendixpagename}{Annexes}
+\renewcommand{\appendixtocname}{Annexes}
+
+\title{Theme: Performance & Robustesse}
+\author{Lyes \bsc{Kherbiche}}
+\date{2-2}
+
+
+
+%new
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+
+\begin{document}
+
+\selectlanguage{francais}
+\pagenumbering{arabic} 
+
+\makeatletter
+  \begin{titlepage}
+  
+
+  \begin{sffamily}
+   \begin{center}
+
+    % Upper part of the page. The '~' is needed because \\
+    % only works if a paragraph has started.
+    \includegraphics[scale=0.5]{Logo_UT3.jpg}~\\[1.5cm]
+
+    \textsc{\LARGE UFR EEA }\\[2cm]
+
+    \textsc{\Large Rapport Perfo et Robust}\\[1.5cm]
+
+    % Title
+    \HRule \\[0.4cm]
+    { \huge \bfseries Archi des Pics\\[0.4cm] }
+
+    \HRule \\[2cm]
+    \includegraphics[scale=0.3]{Logo_UT3.jpg}
+    \\[2cm]
+
+    % Author and supervisor
+    \begin{minipage}{0.4\textwidth}
+      \begin{flushleft} \large
+         \textsc{Ali Kherbiche}\\
+        Promo \\
+      \end{flushleft}
+    \end{minipage}
+    \begin{minipage}{0.4\textwidth}
+      \begin{flushright} \large
+        \emph{Tuteur :}  \textsc{M. GOUSBOU}\\
+        \emph{Responsable de la Formation:} \textsc{M. BIDON}
+      \end{flushright}
+    \end{minipage}
+
+    \vfill
+
+    % Bottom of the page
+    {\large Nov 2018}
+
+  \end{center}
+  \end{sffamily}      
+      
+      
+      
+        
+  \end{titlepage}
+\makeatother
+
+
+
+% *********************** Remerciements *****************
+\chapter*{Remerciements}
+ \addcontentsline{toc}{chapter}{Remerciements}
+
+  Je tiens à exprimer ma profonde gratitude à mon promoteur, monsieur XXXX pour m'avoir encadré et guidé tout au long de l'année scolaire et mon mémoire, pour ses conseils judicieux et minutieusement prodigués.\\
+  
+  Aussi je tiens à lui reconnaître le temps précieux qu’il m'a consacré \\
+  
+   Que les membres du jury trouvent ici mes remerciements les plus vifs pour avoir accepté d’honorer par leur jugement mon travail.\\
+   
+   Mes sincères sentiments vont à tous ceux qui, de près ou de loin, ont contribué à la réalisation des mes études supérieurs, en particulier ma chères familles et mes amis (es).\\
+   
+   
+% *********************** Dédicaces *****************
+\chapter*{Dédicaces}
+ \addcontentsline{toc}{chapter}{Dédicaces}
+ \begin{center}
+	\begin{Large} \textbf{À mes très chers parents} \end{Large}\\ 
+	\begin{Large} \textbf{À mes frères} \end{Large}\\
+	\begin{Large} \textbf{À toute ma famille} \end{Large}\\
+	\begin{Large} \textbf{À tous mes amis (es)} \end{Large} \\ 
+	\begin{Large} \textbf{À toute la promo} \end{Large}\\
+ \end{center}
+ \begin{flushright} \begin{Large} \textit{Ali Kherbiche} \end{Large} \end{flushright}
+
+%*********************** somaire **************
+\tableofcontents
+%*********************** listes des figures **************
+\listoffigures
+%*********************** listes des tableaux **************
+\listoftables
+
+
+
+%*********************** INTRODUCTION **************
+\chapter*{Introduction}
+ \addcontentsline{toc}{chapter}{Introduction}
+ 
+  Une des raisons de construire des logiciels est pour une utilité utilisateurs.bla bla
+                                                      
+
+
+
+%*********************** Problématique **************
+\chapter*{Problématique}
+ \addcontentsline{toc}{chapter}{Problématique}
+   Depuis l’apparition de la nécessité de. \\
+   
+   Les systèmes .... bla bla... ajoutant à cela quelques problèmes connus:
+   
+    \begin{itemize}[label=$\square$]
+      \item  Les applications.
+      \item  Les problèmes de. 
+      \item  L'ajout de.
+      \item  Les applications.
+  \end{itemize}
+  
+   Malheureusement beaucoup d'entreprises ont bla bla. \\
+   
+   De nos jours....
+   
+   
+
+
+
+%*********************** État de l'art **************
+\chapter*{État de l'art}
+\addcontentsline{toc}{chapter}{État de l'art}
+ \chaptermark{État de l'art}
+
+ Les années 1960 ont été le début du bla bla .... \\
+ 
+ L'apparition de bla bla ....\\
+ 
+ L'architecture bla bla...\\
+ 
+ L'architecture....
+ 
+ Maintenant, bla bla....
+ 
+ Les bla bla....
+ 
+
+
+
+%*********************** Performance et Robustesse **************
+\chapter{Performance et Robustesse}
+ La Performance c’est tout d’abord un blaba.\\
+ 
+ La Robustesse c’est tout d’abord un blaba.\\ \\
+ % captures d’écrans 
+ \begin{center}
+   \includegraphics[scale=0.5]{Logo_UT3.jpg}
+   \captionof{figure}{\textit{Exemple d'architecture}}
+   \label{fig1}
+ \end{center}
+ 
+ La figure au-dessus a ... bla bla ....\\
+ 
+ Les bla bla ....\\
+ 
+ Néanmoins, cette structure n’est jamais stable au fil du temps, ... bla bla.\\
+  
+ En court, il y a une différence entre ... bla bla ..., est fort envisageable qu’elle subira des changements dans le temps.
+ 
+ \paragraph{Définition:}
+  Bla bla ....
+
+
+
+\end{document}
