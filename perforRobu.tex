@@ -40,6 +40,7 @@
 \usepackage[table]{xcolor} % pour les tableaux
 
 \usepackage{verbatim}
+\usepackage{pifont}
 \usepackage{moreverb}
 \usepackage{url}
 \usepackage{pst-all}
@@ -159,8 +160,8 @@
  \addcontentsline{toc}{chapter}{Problématique}
  
  \begin{center}
-   \includegraphics[width=10cm,height=10cm,keepaspectratio]{index.png}
-   \captionof{figure}{\textit{Procédé trois bacs}}
+   \includegraphics[width=12cm]{index.png}
+   \captionof{figure}{\textit{Procédé trois bacs \cite{ref1}.}}
    \label{fig1}
  \end{center}   
    
@@ -212,17 +213,19 @@
 
  \section{Les spécifications satisfaites}
  
-  Sans connaître les valeurs numérique du gain $k$ ou celle de la constante de temps $\tau_{i}$ utilisées dans le correcteur $K(p)$, on pourra déjà satisfaire la spécification $(a)$
+  \begin{itemize} [label=\ding{70},font=\small \color{black}]
+  	\item Sans connaître les valeurs numérique du gain $k$ ou celle de la constante de temps $\tau_{i}$ utilisées dans le correcteur $K(p)$, on pourra déjà satisfaire la spécification $(b)$ car un integrateur $\frac{1}{p}$ ce que contient notre correcteur élimine l'erreur de position.
+    \item à toi de jouer...
+  \end{itemize}
+ 
+ \section{Détermination de la contrainte sur le gabarit de $S(p)$}  
+ 
+  \subsection{Création du gabarit de l'erreur de position}
   
- \section{}  
-
-      
- 
- 
- 
- 
- 
- 
+  
+  
+  \subsection{Création du gabarit de l'erreur de vitesse}
+  
  La figure au-dessus a ... bla bla ....\\
  
  Les bla bla ....\\
@@ -238,4 +241,13 @@
   ggggggggggggggg
   \subsection{jamal}
 
+%*********************** CONCLUSION **************
+\chapter*{Conclusion}
+ \addcontentsline{toc}{chapter}{Conclusion}
+ 
+%*********************** Bibliographie ************ 
+\bibliographystyle{alpha}
+\bibliography{bibliographieperfoRobu}  
+
 \end{document}\grid
+
