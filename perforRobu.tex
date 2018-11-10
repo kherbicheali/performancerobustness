@@ -134,7 +134,7 @@
   
    Nous tenons à remercier notre encadreur et professeur de cours, M.Frédéric GOUAISBAUT pour nous avoir guidé tout au long des deux séances de TP, nous tenons aussi à lui reconnaitre le temps qu'il nous a consacré afin de nous orienter et de nous conseiller.\\
    \\
-   Nous remercions notre professeur de TD M.Sylvain DUROLA     
+   Nous remercions notre professeur de TD M.Sylvain DUROLA.......     
    
 %*********************** somaire **************
 \tableofcontents
@@ -183,21 +183,41 @@
 %*********************** Performance et Robustesse **************
 \chapter{Analyse d'une commande proportionnelle intégrale}
 
- \begin{enumerate}
-      \item Le schéma bloc.
-       Après l'ajout du correcteur PI $K(p)=\frac {1+\tau_{i}p}{\tau_{i}p}$ à notre système, voici à quoi ressemble le       shéma bloc de l'asservissement:
-       
-  % captures d’écrans 
- \begin{center}
-   \includegraphics[scale=0.5]{Logo_UT3.jpg}
-   \captionof{figure}{\textit{Schéma bloc de l'asservissement}}
-   \label{fig2}
- \end{center}    
+ \section{Le schéma bloc} 
+
+	Après l'ajout du correcteur PI $K(p)=\frac {1+\tau_{i}p}{\tau_{i}p}$ à notre système, voici à quoi ressemble le       shéma bloc de l'asservissement:
+% captures d’écrans 
+  \begin{center}
+    %\includegraphics[scale=0.5]{Logo_UT3.jpg}
+    \captionof{figure}{\textit{Schéma bloc de l'asservissement}}
+    \label{fig2}
+  \end{center}    
  
- On voit clairement que le débit de fuite du bac numéro 1 est représenté    
-       
-      \item Un bruit de mesure sur le capteur permettant la mesure de\[h_{1}(t)\]
-  \end{enumerate}
+	On voit clairement que le signal du débit de fuite $W_{u}(p)$ du bac numéro 1 est relié au signal de commande $U(p)$ et le signal du bruit de mesure $b(p)$ et relié au signal de sortie $h_{1}(p)$.    
+	
+ \section{La validité de L'hypothèse} 
+        
+	Vu que l'eau est un liquide incompréssible, notre supposition du débit de fuite constant tient la route.
+	
+ \section{Le diagramme asymptotique de $K(p)=\frac {1+\tau_{i}p}{\tau_{i}p}$} 
+ 
+ % captures d’écrans 
+  \begin{center}
+    %\includegraphics[scale=0.5]{Logo_UT3.jpg}
+    \captionof{figure}{\textit{Diagramme de Bode (gain et phase) }}
+    \label{fig3}
+  \end{center}
+
+  \textbf{Nota:} Le correcteur a une allure d'un filtre passe bas.
+
+ \section{Les spécifications satisfaites}
+ 
+  Sans connaître les valeurs numérique du gain $k$ ou celle de la constante de temps $\tau_{i}$ utilisées dans le correcteur $K(p)$, on pourra déjà satisfaire la spécification $(a)$
+  
+ \section{}  
+
+      
+ 
  
  
  
@@ -216,5 +236,6 @@
 
  \section{Section une}
   ggggggggggggggg
+  \subsection{jamal}
 
 \end{document}\grid
