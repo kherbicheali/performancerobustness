@@ -85,35 +85,39 @@
     \includegraphics[scale=0.5]{Logo_UT3.jpg}~\\[1.5cm]
 
     \textsc{\LARGE UFR EEA }\\[2cm]
-
-    \textsc{\Large Rapport Perfo et Robust}\\[1.5cm]
+    
+    %\textsc{\Large Rapport Performance et Robustesse}\\[1.5cm]
+    
+    \textsc{\Large Rapport analyse et performances des systèmes linéaires}\\[1cm]
 
     % Title
     \HRule \\[0.4cm]
-    { \huge \bfseries Archi des Pics\\[0.4cm] }
+    \textsc{ \huge Asservissement d'un système à trois bacs d'eau\\[0.4cm] }
 
     \HRule \\[2cm]
-    \includegraphics[scale=0.3]{Logo_UT3.jpg}
+    \includegraphics[width=3cm,height=3cm,keepaspectratio] {cropped-Logo-master-EEA.jpg}
     \\[2cm]
 
     % Author and supervisor
     \begin{minipage}{0.4\textwidth}
       \begin{flushleft} \large
-         \textsc{Ali Kherbiche}\\
-        Promo \\
+         \textsc{Kherbiche Ali}\\
+         \textsc{Halimi Amine}\\
+        \emph {Promotion:} \\
+         \textsc{2018-2019}\\
       \end{flushleft}
     \end{minipage}
     \begin{minipage}{0.4\textwidth}
       \begin{flushright} \large
-        \emph{Tuteur :}  \textsc{M. GOUESBAUT}\\
-        \emph{Responsable de la Formation:} \textsc{M. BIDON}
+        \emph{Encadreur et Responsable de la Formation M1 ISTR-RODECO :}  \textsc{M. Frédéric GOUAISBAUT}\\
+        %\emph{Responsable de la Formation:} \textsc{M. BIDON}
       \end{flushright}
     \end{minipage}
 
     \vfill
 
     % Bottom of the page
-    {\large Nov 2018}
+    \emph{\large Novembre 2018}
 
   \end{center}
   \end{sffamily}      
@@ -127,28 +131,11 @@
 % *********************** Remerciements *****************
 \chapter*{Remerciements}
  \addcontentsline{toc}{chapter}{Remerciements}
-
-  Je tiens à exprimer ma profonde gratitude à mon promoteur, monsieur XXXX pour m'avoir encadré et guidé tout au long de l'année scolaire et mon mémoire, pour ses conseils judicieux et minutieusement prodigués.\\
   
-  Aussi je tiens à lui reconnaître le temps précieux qu’il m'a consacré \\
-  
-   Que les membres du jury trouvent ici mes remerciements les plus vifs pour avoir accepté d’honorer par leur jugement mon travail.\\
+   Nous tenons à remercier notre encadreur et professeur de cours, M.Frédéric GOUAISBAUT pour nous avoir guidé tout au long des deux séances de TP, nous tenons aussi à lui reconnaitre le temps qu'il nous a consacré afin de nous orienter et de nous conseiller.\\
+   \\
+   Nous remercions notre professeur de TD M.Sylvain DUROLA     
    
-   Mes sincères sentiments vont à tous ceux qui, de près ou de loin, ont contribué à la réalisation des mes études supérieurs, en particulier ma chères familles et mes amis (es).\\
-   
-   
-% *********************** Dédicaces *****************
-\chapter*{Dédicaces}
- \addcontentsline{toc}{chapter}{Dédicaces}
- \begin{center}
-	\begin{Large} \textbf{À mes très chers parents} \end{Large}\\ 
-	\begin{Large} \textbf{À mes frères} \end{Large}\\
-	\begin{Large} \textbf{À toute ma famille} \end{Large}\\
-	\begin{Large} \textbf{À tous mes amis (es)} \end{Large} \\ 
-	\begin{Large} \textbf{À toute la promo} \end{Large}\\
- \end{center}
- \begin{flushright} \begin{Large} \textit{Ali Kherbiche} \end{Large} \end{flushright}
-
 %*********************** somaire **************
 \tableofcontents
 %*********************** listes des figures **************
@@ -162,7 +149,7 @@
 \chapter*{Introduction}
  \addcontentsline{toc}{chapter}{Introduction}
  
-  Une des raisons de construire des logiciels est pour une utilité utilisateurs.bla bla
+  Le but de cette manipulation est d'illustrer la commande robuste d'un système non linéaire linéarisé autour d'un point de fonctionnement et de mettre en oeuvre les techniques d'analyse et de synthèse de lois de commande robuste comme le loop-shapping.\\
                                                       
 
 
@@ -170,56 +157,51 @@
 %*********************** Problématique **************
 \chapter*{Problématique}
  \addcontentsline{toc}{chapter}{Problématique}
+ 
+ \begin{center}
+   \includegraphics[width=10cm,height=10cm,keepaspectratio]{index.png}
+   \captionof{figure}{\textit{Procédé trois bacs}}
+   \label{fig1}
+ \end{center}   
+   
    Depuis l’apparition de la nécessité de. \\
    
-   Les systèmes .... bla bla... ajoutant à cela quelques problèmes connus:
+   Notre système est soumis à des perturbations exogènes suivants:
+        
+  \begin{enumerate}
+      \item Un débit de fuite constante au niveau du bac numéro 1.
+      \item Un bruit de mesure sur le capteur permettant la mesure de $h_{1}(t)$.
+  \end{enumerate}
    
-    \begin{itemize}[label=$\square$]
-      \item  Les applications.
-      \item  Les problèmes de. 
-      \item  L'ajout de.
-      \item  Les applications.
-  \end{itemize}
-  
+   Les systèmes .... bla bla... ajoutant à cela quelques problèmes connus:
+    
    Malheureusement beaucoup d'entreprises ont bla bla. \\
    
    De nos jours....
    
-   
-
-
-
-%*********************** État de l'art **************
-\chapter*{État de l'art}
-\addcontentsline{toc}{chapter}{État de l'art}
- \chaptermark{État de l'art}
-
- Les années 1960 ont été le début du bla bla .... \\
- 
- L'apparition de bla bla ....\\
- 
- L'architecture bla bla...\\
- 
- L'architecture....
- 
- Maintenant, bla bla....
- 
- Les bla bla....
- 
-
-
 
 %*********************** Performance et Robustesse **************
-\chapter{Performance et Robustesse}
- La Performance c’est tout d’abord un blaba.\\
- 
- La Robustesse c’est tout d’abord un blaba.\\ \\
- % captures d’écrans 
+\chapter{Analyse d'une commande proportionnelle intégrale}
+
+ \begin{enumerate}
+      \item Le schéma bloc.
+       Après l'ajout du correcteur PI $K(p)=\frac {1+\tau_{i}p}{\tau_{i}p}$ à notre système, voici à quoi ressemble le       shéma bloc de l'asservissement:
+       
+  % captures d’écrans 
  \begin{center}
    \includegraphics[scale=0.5]{Logo_UT3.jpg}
-   \captionof{figure}{\textit{Exemple d'architecture}}
-   \label{fig1}
- \end{center}
+   \captionof{figure}{\textit{Schéma bloc de l'asservissement}}
+   \label{fig2}
+ \end{center}    
+ 
+ On voit clairement que le débit de fuite du bac numéro 1 est représenté    
+       
+      \item Un bruit de mesure sur le capteur permettant la mesure de\[h_{1}(t)\]
+  \end{enumerate}
+ 
+ 
+ 
+ 
  
  La figure au-dessus a ... bla bla ....\\
  
@@ -235,4 +217,4 @@
  \section{Section une}
   ggggggggggggggg
 
-\end{document}
+\end{document}\grid
