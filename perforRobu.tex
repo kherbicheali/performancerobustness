@@ -135,8 +135,9 @@
 \chapter*{Remerciements}
  \addcontentsline{toc}{chapter}{Remerciements}
   
+  \paragraph{}
    Nous tenons à remercier notre encadreur et professeur de cours, M.Frédéric GOUAISBAUT pour nous avoir guidé tout au long des deux séances de TP, nous tenons aussi à lui reconnaitre le temps qu'il nous a consacré afin de nous orienter et de nous conseiller.\\
-   \\
+  \paragraph{}
    Nous remercions notre professeur de TD M.Sylvain DUROLA.......     
    
 %*********************** somaire **************
@@ -152,6 +153,7 @@
 \chapter*{Introduction}
  \addcontentsline{toc}{chapter}{Introduction}
  
+ \paragraph{}
   Le but de cette manipulation est d'illustrer la commande robuste d'un système non linéaire linéarisé autour d'un point de fonctionnement et de mettre en oeuvre les techniques d'analyse et de synthèse de lois de commande robuste comme le loop-shapping.\\
                                                       
 
@@ -162,32 +164,36 @@
  \addcontentsline{toc}{chapter}{Problématique}
  
  \begin{center}
-   \includegraphics[width=12cm]{index.png}
-   \captionof{figure}{\textit{Procédé trois bacs \cite{ref1}.}}
+   %\includegraphics[width=12cm]{index.png}
+   \includegraphics[width=13cm]{rebout.png}
+   \captionof{figure}{\textit{Procédé trois bacs \cite{ref1}}}
    \label{fig1}
  \end{center}   
+
    
-   Depuis l’apparition de la nécessité de. \\
-   
-   Notre système est soumis à des perturbations exogènes suivants:
+Depuis l’apparition de la nécessité de. \\
+
+\paragraph{}   
+Notre système est soumis à des perturbations exogènes suivants:
         
   \begin{enumerate}
       \item Un débit de fuite constante au niveau du bac numéro 1.
       \item Un bruit de mesure sur le capteur permettant la mesure de $h_{1}(t)$.
   \end{enumerate}
    
-   Les systèmes .... bla bla... ajoutant à cela quelques problèmes connus:
+  % Les systèmes .... bla bla... ajoutant à cela quelques problèmes connus:
     
-   Malheureusement beaucoup d'entreprises ont bla bla. \\
+  % Malheureusement beaucoup d'entreprises ont bla bla. \\
    
-   De nos jours....
+  % De nos jours....
    
 
 %*********************** Performance et Robustesse **************
 \chapter{Analyse d'une commande proportionnelle intégrale}
 
- \section{Le schéma bloc} 
+ \section{Le schéma bloc du systéme bouclé} 
 
+\paragraph{}
 	Après l'ajout du correcteur PI $K(p)=\frac {1+\tau_{i}p}{\tau_{i}p}$ à notre système, voici à quoi ressemble le       shéma bloc de l'asservissement:
 % captures d’écrans 
   \begin{center}
@@ -196,10 +202,12 @@
     \label{fig2}
   \end{center}    
  
+ \paragraph{}
 	On voit clairement que le signal du débit de fuite $W_{u}(p)$ du bac numéro 1 est relié au signal de commande $U(p)$ et le signal du bruit de mesure $b(p)$ et relié au signal de sortie $h_{1}(p)$.    
 	
  \section{La validité de L'hypothèse} 
-        
+  
+ \paragraph{}       
 	Vu que l'eau est un liquide incompréssible, notre supposition du débit de fuite constant tient la route.
 	
  \section{Le diagramme asymptotique de $K(p)=\frac {1+\tau_{i}p}{\tau_{i}p}$} 
@@ -207,7 +215,7 @@
  % captures d’écrans 
   \begin{center}
     %\includegraphics[scale=0.5]{Logo_UT3.jpg}
-    \captionof{figure}{\textit{Diagramme de Bode (gain et phase) }}
+    \captionof{figure}{\textit{Diagramme de Bode (gain et phase) de $K(jw)$ }}
     \label{fig3}
   \end{center}
 
@@ -220,42 +228,88 @@
     \item à toi de jouer...
   \end{itemize}
  
- \section{Détermination de la contrainte sur le gabarit de $S(p)$}  
+ \section{Détermination de la contrainte sur le gabarit de $\xi_{p} et \xi_{v} $ pour $S(p)$}  
  
-  \subsection{Création du gabarit sur l'erreur de position}
+  \subsection{Construction du gabarit de l'erreur de position}
   
    On dispose de la loi suivante: \hspace{5mm} $\xi_{p}=\underset{p\longrightarrow 0}{lim}  p\xi(p)$\\[0.75cm]
    On sait que: \hspace{5mm} $\xi(p)=S(p)R(p)$\\[0.75cm]
    Avec la consigne qui est égale à: \hspace{5mm} $R(p)=\frac{1}{p}$\\[0.75cm]
    Donc: \hspace{5mm} $\xi_{p}=\underset{p\longrightarrow 0}{lim} S(p)=S(0)$\\[0.75cm]
-   Si on choisit $W_{1}(p)=\frac{\alpha}{p}$ tel que $|W_{1}(p)S(p)|<1$, alors $|S(p)|<\alpha p$, $\alpha \in R^{*}$ \\[0.75cm]
+   Si on choisit la fonction de pondération $W_{1}(p)=\frac{\alpha}{p}$ tel que $|W_{1}(p)S(p)|<1$, alors $|S(p)|<\alpha p$, $\alpha \in R^{*}$ \\[0.75cm]
    On obtient au final: \hspace{5mm} $||S(jw)||_{H\infty}<\alpha jw$, $\alpha \in R^{*}$. Pour valider le choix il suffit de calculer $S(p)$ quand $p\rightarrow0$ qui est égale à $0$, donc $\forall w \in R \hspace{2mm} \xi_{p}=0$ 
    
    \begin{center}
     %\includegraphics[scale=0.5]{Logo_UT3.jpg}
-    \captionof{figure}{\textit{Diagramme illustrant le gabarit sur l'erreur de position}}
+    \captionof{figure}{\textit{Diagramme illustrant le gabarit de l'erreur de position}}
     \label{fig4}
   \end{center}
    
-  \subsection{Création du gabarit sur l'erreur de vitesse}
+  \subsection{Contruction du gabarit de l'erreur de vitesse}
   
   Cette fois pour calculer l'erreur de vitesse $\xi_{v}$ le signal de consigne équivaut à $R(p)=\frac{1}{p^{2}}$\\[0.75cm]
   Donc: \hspace{5mm} $\xi_{v}=\underset{p\longrightarrow 0}{lim}\frac{S(p)}{p}$\\[0.75cm]
-  Si on choisit $W_{2}(p)=\frac{\beta}{p}$ tel que $|W_{2}(p)S(p)|<1$, alors $|S(p)|<\beta p$, $\beta \in ]0, 1]$\\[0.75cm]
+  Si on choisit la fonction de pondération $W_{2}(p)=\frac{\beta}{p}$ tel que $|W_{2}(p)S(p)|<1$, alors $|S(p)|<\beta p$, $\beta \in ]0, 1]$\\[0.75cm]
   On obtient au final: \hspace{5mm} $||S(jw)||_{H\infty}<\beta$, $\beta \in ]0, 1]$. Pour valider le choix il suffit de calculer $S(p)$ quand $p\rightarrow0$ qui est égale à $\beta$, donc $\forall w \in R \hspace{2mm} \xi_{v}=\beta$ 
   
   \begin{center}
     %\includegraphics[scale=0.5]{Logo_UT3.jpg}
-    \captionof{figure}{\textit{Diagramme illustrant le gabarit sur l'erreur de vitesse}}
+    \captionof{figure}{\textit{Diagramme illustrant le gabarit de l'erreur de vitesse}}
     \label{fig5}
   \end{center}
   
  \textbf{Nota:} \hspace{2mm} Les deux gabarits vu précédemment sont soit colinéaires soit l'un est comporté ou et inclut dans l'autre.\\
  
  \section{La bande passante de $S(p)$}
- On dispose de la relation suivante : \hspace{7mm} $|T(jw)|_{dB}-|T(0)|_{dB}>3dB,\hspace{1mm} \forall w\in[0, w_{c}]$, $w_{c}$: pulsation de coupure.     
+ 
+ \paragraph{}
+ On dispose de la relation de la bande passante sur $T(jw)$: $|T(jw)|_{dB}-|T(0)|_{dB}>3dB,\hspace{1mm} \forall w\in[0, w_{c}]$, $w_{c}$: pulsation de coupure.\\
+ Après développement on obtient: $\frac{|T(jw)|}{|T(0)|}>\frac{1}{\sqrt{2}} \Rightarrow |T(jw)|>\frac{1}{\sqrt{2}}, w\in[0, w_{c}]$ qui est la condition nécéssaire qu'il faut satisfaire afin de créer le gabarit équivalent à la spécification sur la vitesse de convergence.\\
+ 
+ \paragraph{}
+ Si on choisit la suivante condition sur $S(jw)$: $|S(jw)|<1-\frac{1}{\sqrt{2}}$ \hspace{1mm} c'est à dire $||S(jw)||_{H\infty}<1-\frac{1}{\sqrt{2}} \hspace{1mm} où \hspace{1mm} w\in[0, w_{c}]$ \\
+ $\Rightarrow$ \hspace{3mm} $\frac{1}{\sqrt{2}}<1-|S(jw)|.........(1)$\\
+ 
+ \paragraph{}
+ Or on sait que: $|T(jw)|+|S(jw)|\geqslant1$\\
+ Ainsi: $1-|S(jw)|\leqslant|T(jw)|.........(2)$\\
+ 
+ \paragraph{}
+ De $(1)$ et $(2)$ on obtient: \hspace{5mm} $\frac{1}{\sqrt{2}}<1-|S(jw)|\leqslant|T(jw)|$\\
+ Il ne reste qu'à dire que pour \hspace{1mm} $\forall w\in[0, w_{c}],$ \hspace{2mm} $\frac{1}{\sqrt{2}}<|T(jw)|$\\
+ 
+ \paragraph{}
+ Au final la fonction de pondération $W_{3}(jw)=\frac{\sqrt{2}}{\sqrt{2}-1}$ \hspace{1mm} s'obtient en validant la condition $|W_{3}(jw)S(jw)|<1.$\hspace{1mm}De cette manière la condition sur $T(jw)$ est respectée, maintenant voyons ce que va donner l'interprétation graphique du gabarit.\\
+ 
+ \section{Construction du gabarit de la vitesse de convergence pour $S(p)$} 
+ 
+  \begin{center}
+    %\includegraphics[scale=0.5]{Logo_UT3.jpg}
+    \captionof{figure}{\textit{Diagramme illustrant le gabarit de la vitesse de convergence pour $S(p)$}}
+    \label{fig6}
+  \end{center}
+  
+ \section{Construction du gabarit de la convergance sans oscillations pour $S(p)$} 
+  
+  \paragraph{}
+  Afin de satisfaire cette spécification du cahier des charges nous choisissons de démarrer par la définition de la marge de module $M_{m} $ qui est inversement propertionnelle à la norme H infinie de la fonction de sensiblité $S(p) $, on trouve $M_{m}=\frac{1}{||S(jw)||_{H\infty}} $ 
+  
+  \paragraph{}
+  On sait que si $ M_{m}>1 $ alors l'asservissement n'aura ni oscillations ni dépassements. Essayons de développer cette idée: \\
+  
+      
   
   
+  
+  \paragraph{Définition:}
+  
+Bla bla Mahmoud jamal qassi ssaid mehenna rebout ih rebout ihhhzfsdsdfksdfjdjf sdfj klrzoeri lsldfj 
+ereroejr reljer
+  
+  \paragraph{}
+  fkdfkdfjjfkdkfjksfjlqlqlqlsflqllslfdqsdlqksjdoofdjezfijfikjnqkxcjqk,qsjcfqlsd
+  qflqkjskfjqd;fjkdfjkdjfikdfikdfjdkjkdjfkd  
+   
  La figure au-dessus a ... bla bla ....\\
  
  Les bla bla ....\\
