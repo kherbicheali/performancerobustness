@@ -41,6 +41,7 @@
 
 \usepackage{verbatim}
 \usepackage{pifont}
+\usepackage{amsmath}
 \usepackage{moreverb}
 \usepackage{url}
 \usepackage{pst-all}
@@ -50,6 +51,7 @@
 \usepackage{array}
 \usepackage[toc,page]{appendix}
 \usepackage[off]{auto-pst-pdf}
+\usepackage[upright]{fourier}
 \usepackage{hyperref} % pour le sommaire table des matières
 \AddThinSpaceBeforeFootnotes % à insérer si on utilise \usepackage[french]{babel}
 \FrenchFootnotes % à insérer si on utilise \usepackage[french]{babel}
@@ -209,7 +211,7 @@
     \label{fig3}
   \end{center}
 
-  \textbf{Nota:} Le correcteur a une allure d'un filtre passe bas.
+  \textbf{Nota:} \hspace{2mm} Le correcteur a une allure d'un filtre passe bas.
 
  \section{Les spécifications satisfaites}
  
@@ -220,11 +222,39 @@
  
  \section{Détermination de la contrainte sur le gabarit de $S(p)$}  
  
-  \subsection{Création du gabarit de l'erreur de position}
+  \subsection{Création du gabarit sur l'erreur de position}
   
+   On dispose de la loi suivante: \hspace{5mm} $\xi_{p}=\underset{p\longrightarrow 0}{lim}  p\xi(p)$\\[0.75cm]
+   On sait que: \hspace{5mm} $\xi(p)=S(p)R(p)$\\[0.75cm]
+   Avec la consigne qui est égale à: \hspace{5mm} $R(p)=\frac{1}{p}$\\[0.75cm]
+   Donc: \hspace{5mm} $\xi_{p}=\underset{p\longrightarrow 0}{lim} S(p)=S(0)$\\[0.75cm]
+   Si on choisit $W_{1}(p)=\frac{\alpha}{p}$ tel que $|W_{1}(p)S(p)|<1$, alors $|S(p)|<\alpha p$, $\alpha \in R^{*}$ \\[0.75cm]
+   On obtient au final: \hspace{5mm} $||S(jw)||_{H\infty}<\alpha jw$, $\alpha \in R^{*}$. Pour valider le choix il suffit de calculer $S(p)$ quand $p\rightarrow0$ qui est égale à $0$, donc $\forall w \in R \hspace{2mm} \xi_{p}=0$ 
+   
+   \begin{center}
+    %\includegraphics[scale=0.5]{Logo_UT3.jpg}
+    \captionof{figure}{\textit{Diagramme illustrant le gabarit sur l'erreur de position}}
+    \label{fig4}
+  \end{center}
+   
+  \subsection{Création du gabarit sur l'erreur de vitesse}
   
+  Cette fois pour calculer l'erreur de vitesse $\xi_{v}$ le signal de consigne équivaut à $R(p)=\frac{1}{p^{2}}$\\[0.75cm]
+  Donc: \hspace{5mm} $\xi_{v}=\underset{p\longrightarrow 0}{lim}\frac{S(p)}{p}$\\[0.75cm]
+  Si on choisit $W_{2}(p)=\frac{\beta}{p}$ tel que $|W_{2}(p)S(p)|<1$, alors $|S(p)|<\beta p$, $\beta \in ]0, 1]$\\[0.75cm]
+  On obtient au final: \hspace{5mm} $||S(jw)||_{H\infty}<\beta$, $\beta \in ]0, 1]$. Pour valider le choix il suffit de calculer $S(p)$ quand $p\rightarrow0$ qui est égale à $\beta$, donc $\forall w \in R \hspace{2mm} \xi_{v}=\beta$ 
   
-  \subsection{Création du gabarit de l'erreur de vitesse}
+  \begin{center}
+    %\includegraphics[scale=0.5]{Logo_UT3.jpg}
+    \captionof{figure}{\textit{Diagramme illustrant le gabarit sur l'erreur de vitesse}}
+    \label{fig5}
+  \end{center}
+  
+ \textbf{Nota:} \hspace{2mm} Les deux gabarits vu précédemment sont soit colinéaires soit l'un est comporté ou et inclut dans l'autre.\\
+ 
+ \section{La bande passante de $S(p)$}
+ On dispose de la relation suivante : \hspace{7mm} $|T(jw)|_{dB}-|T(0)|_{dB}>3dB,\hspace{1mm} \forall w\in[0, w_{c}]$, $w_{c}$: pulsation de coupure.     
+  
   
  La figure au-dessus a ... bla bla ....\\
  
@@ -249,5 +279,5 @@
 \bibliographystyle{alpha}
 \bibliography{bibliographieperfoRobu}  
 
-\end{document}\grid
+\end{document}
 
