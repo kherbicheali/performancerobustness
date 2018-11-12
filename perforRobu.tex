@@ -39,6 +39,7 @@
 \usepackage{multirow} % pour les tableaux
 \usepackage[table]{xcolor} % pour les tableaux
 
+\usepackage{graphicx}
 \usepackage{verbatim}
 \usepackage{pifont}
 \usepackage{amsmath}
@@ -194,7 +195,7 @@ Notre système est soumis à des perturbations exogènes suivants:
  \section{Le schéma bloc du systéme bouclé} 
 
 \paragraph{}
-	Après l'ajout du correcteur PI $K(p)=\frac {1+\tau_{i}p}{\tau_{i}p}$ à notre système, voici à quoi ressemble le       shéma bloc de l'asservissement:
+	Après l'ajout du correcteur PI $K(p)= k \frac {1+\tau_{i}p}{\tau_{i}p}$ à notre système, voici à quoi ressemble le       shéma bloc de l'asservissement:
 % captures d’écrans 
   \begin{center}
     %\includegraphics[scale=0.5]{Logo_UT3.jpg}
@@ -210,7 +211,7 @@ Notre système est soumis à des perturbations exogènes suivants:
  \paragraph{}       
 	Vu que l'eau est un liquide incompréssible, notre supposition du débit de fuite constant tient la route.
 	
- \section{Le diagramme asymptotique de $K(p)=\frac {1+\tau_{i}p}{\tau_{i}p}$} 
+ \section{Le diagramme asymptotique de $K(p)= k \frac {1+\tau_{i}p}{\tau_{i}p}$} 
  
  % captures d’écrans 
   \begin{center}
@@ -237,10 +238,10 @@ Notre système est soumis à des perturbations exogènes suivants:
    Avec la consigne qui est égale à: \hspace{5mm} $R(p)=\frac{1}{p}$\\[0.75cm]
    Donc: \hspace{5mm} $\xi_{p}=\underset{p\longrightarrow 0}{lim} S(p)=S(0)$\\[0.75cm]
    Si on choisit la fonction de pondération $W_{1}(p)=\frac{\alpha}{p}$ tel que $|W_{1}(p)S(p)|<1$, alors $|S(p)|<\alpha p$, $\alpha \in R^{*}$ \\[0.75cm]
-   On obtient au final: \hspace{5mm} $||S(jw)||_{H\infty}<\alpha jw$, $\alpha \in R^{*}$. Pour valider le choix il suffit de calculer $S(p)$ quand $p\rightarrow0$ qui est égale à $0$, donc $\forall w \in R \hspace{2mm} \xi_{p}=0$ 
+   On obtient au final: \hspace{5mm} $||S(jw)||_{H\infty}<\alpha jw$, $\alpha \in R^{*}$. Pour valider le choix il suffit de calculer $S(p)$ quand $p\rightarrow0$ qui est égal à $0$, donc $\forall w \in R \hspace{2mm} \xi_{p}=0$ 
    
    \begin{center}
-    %\includegraphics[scale=0.5]{Logo_UT3.jpg}
+    \includegraphics[scale=0.5]{gabarit1.pdf}
     \captionof{figure}{\textit{Diagramme illustrant le gabarit de l'erreur de position}}
     \label{fig4}
   \end{center}
@@ -250,16 +251,18 @@ Notre système est soumis à des perturbations exogènes suivants:
   Cette fois pour calculer l'erreur de vitesse $\xi_{v}$ le signal de consigne équivaut à $R(p)=\frac{1}{p^{2}}$\\[0.75cm]
   Donc: \hspace{5mm} $\xi_{v}=\underset{p\longrightarrow 0}{lim}\frac{S(p)}{p}$\\[0.75cm]
   Si on choisit la fonction de pondération $W_{2}(p)=\frac{\beta}{p}$ tel que $|W_{2}(p)S(p)|<1$, alors $|S(p)|<\beta p$, $\beta \in ]0, 1]$\\[0.75cm]
-  On obtient au final: \hspace{5mm} $||S(jw)||_{H\infty}<\beta$, $\beta \in ]0, 1]$. Pour valider le choix il suffit de calculer $S(p)$ quand $p\rightarrow0$ qui est égale à $\beta$, donc $\forall w \in R \hspace{2mm} \xi_{v}=\beta$ 
+  On obtient au final: \hspace{5mm} $||S(jw)||_{H\infty}<\beta jw$, $\beta \in ]0, 1]$. Pour valider le choix il suffit de calculer $S(p)$ quand $p\rightarrow0$ qui est égal à $\beta$, donc $\forall w \in R \hspace{2mm} \xi_{v}=\beta$ 
   
   \begin{center}
-    %\includegraphics[scale=0.5]{Logo_UT3.jpg}
+    \includegraphics[scale=0.5]{gabarit1.pdf}
     \captionof{figure}{\textit{Diagramme illustrant le gabarit de l'erreur de vitesse}}
     \label{fig5}
   \end{center}
   
  \textbf{Nota:} \hspace{2mm} Les deux gabarits vu précédemment sont soit colinéaires soit l'un est comporté ou et inclut dans l'autre.\\
  
+ %On dira qu'on a prit w1 = w2 pour éviter tout problème
+
  \section{La bande passante de $S(p)$}
  
  \paragraph{}
@@ -284,7 +287,7 @@ Notre système est soumis à des perturbations exogènes suivants:
  \section{Construction du gabarit de la vitesse de convergence pour $S(p)$} 
  
   \begin{center}
-    %\includegraphics[scale=0.5]{Logo_UT3.jpg}
+    \includegraphics[scale=0.5]{gabarit2.pdf}
     \captionof{figure}{\textit{Diagramme illustrant le gabarit de la vitesse de convergence pour $S(p)$}}
     \label{fig6}
   \end{center}
@@ -296,6 +299,8 @@ Notre système est soumis à des perturbations exogènes suivants:
   
   \paragraph{}
   On sait que si $ M_{m}>1 $ alors l'asservissement n'aura ni oscillations ni dépassements. Essayons de développer cette idée: \\
+  
+  
   
       
   
